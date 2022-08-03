@@ -42,6 +42,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.s[ac]ss$/i,
+				
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader', 
@@ -50,7 +51,10 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.m?js$/,
+				test: /\.(js|jsx)$/,
+				resolve: {
+					extensions: [".js", ".jsx"]
+				},
 				exclude: /node_modules/,
 				use: ['babel-loader']
 			}
@@ -68,5 +72,5 @@ module.exports = {
         './custom/**'
       ]
     })
-	]
+	],
 }
